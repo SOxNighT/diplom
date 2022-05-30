@@ -1,0 +1,23 @@
+﻿@*@model JWT.Domain.ViewModels.CandlesViewModel
+@foreach (var item in Model.Candles)
+{
+    <div>
+        <label>@item.Figi</label> <br><br>
+        @foreach (var candle in item.Candle.Candles)
+           {
+               <label>@candle.Time.Seconds</label>
+               <label>@candle.Time.Nanos</label><br>
+               <label>@candle.Close.Units</label>
+               <label>@candle.Close.Nano</label><br>
+               <label>@candle.High.Units</label>
+               <label>@candle.High.Nano</label><br>
+               <label>@candle.Low.Units</label>
+               <label>@candle.Low.Nano</label><br>
+               <label>@candle.IsComplete</label><br>
+               <label>@candle.Volume</label><br>
+           }
+    </div><br>
+    
+}*@
+
+<app>Loading...</app>

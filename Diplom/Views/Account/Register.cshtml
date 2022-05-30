@@ -1,0 +1,63 @@
+﻿@model JWT.Domain.ViewModels.RegisterModel
+ 
+ 
+
+
+<div class="container text-center" style='height:600px;'>
+  
+<h2>Регистрация</h2>
+    <div class="row justify-content-center ">
+        <div class="col text-center ">
+
+
+            <form asp-action="Register" asp-controller="Account" asp-anti-forgery="true" method="post" asp-route-returnurl="@ViewBag.ReturnUrl">
+                <div class="validation" asp-validation-summary="ModelOnly"></div>
+                <div>
+                   
+       
+
+                    <div class="form-floating mb-3 text-dark">
+                        
+                        <input type="text" asp-for="Email" class="form-control" id="Email" placeholder="name@example.com"/>
+                        <label asp-for="Email" for="Email" >Введите Email</label>
+                        <span asp-validation-for="Email" />
+                    </div>
+
+                    <div class="form-floating mb-3 text-dark">
+                        
+                        <input type="text" asp-for="Name" class="form-control" id="Name" placeholder="name"/>
+                        <label asp-for="Name" for="Name" >Введите имя</label>
+                        <span asp-validation-for="Name" />
+                    </div>
+
+                    <div class="form-floating mb-3 text-dark">
+                        <input asp-for="Password" type="password" class="form-control" id="Password" placeholder="Password"/>
+                         <label asp-for="Password" for="Password">Введите пароль</label>
+                        <span asp-validation-for="Password" />
+                    </div>
+
+                    <div class="form-floating mb-3 text-dark">
+                        <input asp-for="ConfirmPassword" type="password" class="form-control" id="ConfirmPassword" placeholder="ConfirmPassword"/>
+                         <label asp-for="ConfirmPassword" for="ConfirmPassword">Повторите пароль</label>
+                        <span asp-validation-for="ConfirmPassword" />
+                    </div>
+                    
+
+                    <div class="form-floating mb-3 text-dark">
+                        <input asp-for="AccessToken" type="password" class="form-control" id="AccessToken" placeholder="AccessToken" />
+                        <label asp-for="AccessToken" for="AccessToken">Токен авторизации</label>
+                        <span asp-validation-for="AccessToken" />
+                        <label><a href="https://tinkoff.github.io/investAPI/token/">Как получить токен</a></label>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" value="Регистрация" class="btn btn-lg btn-outline-primary mr-3" />
+                        <a class="btn btn-lg btn-outline-primary" asp-area="" asp-controller="Account" asp-action="Login" title="Уже есть аккаунт">Уже есть аккаунт</a>
+                    </div>
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+</div>

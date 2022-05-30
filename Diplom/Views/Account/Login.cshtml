@@ -1,0 +1,45 @@
+﻿@model JWT.Domain.ViewModels.LoginModel
+
+
+
+
+
+<div class="container text-center" style='height:600px;'>
+
+    <h2>Вход на сайт</h2>
+    <div class="row justify-content-center">
+
+        <div>
+
+
+            <form asp-action="Login" asp-controller="Account" asp-anti-forgery="true" method="post" asp-route-returnurl="@ViewBag.ReturnUrl">
+                <div class="validation" asp-validation-summary="ModelOnly"></div>
+                <div>
+
+
+                    <div class="form-floating mb-3 text-dark">
+
+                        <input type="text" asp-for="Email" class="form-control" id="Email" placeholder="name@example.com" />
+                        <label asp-for="Email" for="Email">Введите Email</label>
+                        <span asp-validation-for="Email" />
+                    </div>
+
+                    <div class="form-floating mb-3 text-dark">
+                        <input asp-for="Password" type="password" class="form-control" id="Password" placeholder="Password" />
+                        <label asp-for="Password" for="Password">Введите пароль</label>
+                        <span asp-validation-for="Password" />
+                    </div>
+
+
+                    <div class="form-group">
+                        <input type="submit" value="Войти" class="btn btn-lg btn-outline-primary mr-3" />
+                        <a class="btn btn-lg btn-outline-primary" asp-area="" asp-controller="Account" asp-action="Register" title="Регистрация">Регистрация</a>
+                    </div>
+                </div>
+            </form>
+
+
+        </div>
+
+    </div>
+</div>
