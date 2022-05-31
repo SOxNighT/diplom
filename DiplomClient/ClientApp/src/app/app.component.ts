@@ -1,27 +1,11 @@
-﻿import { Component, OnDestroy, OnInit } from '@angular/core';
-import { SimpleModalService } from 'ngx-simple-modal';
-import { ActiveToast, ToastrService } from 'ngx-toastr';
-import { Subscription } from 'rxjs';
-
+﻿import { Component } from '@angular/core';
+      
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html'
+    selector: 'app-root',
+    template: `<label>Введите имя:</label>
+                 <input [(ngModel)]="name" placeholder="name">
+                 <h2>Добро пожаловать {{name}}!</h2>`
 })
-export class AppComponent implements OnInit, OnDestroy {
-
-
-
-  constructor(private simpleModalService: SimpleModalService,
-              private toasterService: ToastrService
-  ) {
-  }
-
-  ngOnInit() {  }
-
-  ngOnDestroy() {
-  }
-
-
-
+export class AppComponent { 
+    name= '';
 }
-
