@@ -3,6 +3,7 @@ using JWT.Infrastructure.UoW;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,6 +19,7 @@ namespace Diplom
 {
     public class Startup
     {
+        private readonly string _CorsPolicyName = "AllowAll";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -29,6 +31,21 @@ namespace Diplom
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            services.AddCors(options =>
+            {
+                options.AddPolicy(_CorsPolicyName,
+                    builder =>
+                    {
+                        builder
+                            .AllowAnyOrigin()
+                            .AllowAnyMethod()
+                            .AllowAnyHeader();
+                        //Я за то, чтобы выпилить в принципе CORS. Ибо к нам никто не стучится кроссдоменно
+                        //.AllowCredentials();
+                        //The CORS specification also states that setting origins to "*" (all origins) is invalid if the Access-Control-Allow-Credentials header is present.
+                        //https://docs.microsoft.com/en-us/aspnet/core/security/cors?view=aspnetcore-2.2
+                    });
+            });
             services.Configure<Settings>(Configuration.GetSection(nameof(Settings)));
             services.AddDbContext<UserContext>(options => options.UseSqlServer(Configuration.GetSection(nameof(Settings)).GetValue<string>("ContextConnectionString")));
             // установка конфигурации подключения
@@ -41,6 +58,7 @@ namespace Diplom
             services.AddInvestApiClient((_, settings) => settings.AccessToken = "t.uysh4yKgQ4ynjw5-uwZ_r83u9Izwupa_k4Hglown62A3RtZ7wUjbb7jtFj7D0W7CSDqI7bSbatroA0gZob1ufg");
             services.AddScoped<UnitOfWork>();
             services.AddControllersWithViews();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -66,9 +84,21 @@ namespace Diplom
                     await next();
                 }
             });
-
-            app.UseStaticFiles();
-
+            app.UseCors(_CorsPolicyName);
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                OnPrepareResponse = context =>
+                {
+                    if (!String.IsNullOrWhiteSpace(context.Context.Request.Query["v"].ToString()))
+                    {
+                        context.Context.Response.Headers.Add(
+                            "cache-control",
+                            new[] { "public,max-age=31536000" }); //1 год
+                        context.Context.Response.Headers.Add("Expires",
+                            new[] { DateTime.UtcNow.AddYears(1).ToString("R") }); //RFC1123 Совместимость с Html1.0
+                    }
+                },
+            });
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();

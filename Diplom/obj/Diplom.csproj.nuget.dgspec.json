@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mrpoo\\Desktop\\ДИПЛОМ\\Программа на диплом\\Diplom\\Diplom\\Diplom.csproj": {}
+    "C:\\Users\\mrpoo\\Documents\\diplom\\Diplom\\Diplom.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mrpoo\\Desktop\\ДИПЛОМ\\Программа на диплом\\Diplom\\Diplom\\Diplom.csproj": {
+    "C:\\Users\\mrpoo\\Documents\\diplom\\Diplom\\Diplom.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mrpoo\\Desktop\\ДИПЛОМ\\Программа на диплом\\Diplom\\Diplom\\Diplom.csproj",
+        "projectUniqueName": "C:\\Users\\mrpoo\\Documents\\diplom\\Diplom\\Diplom.csproj",
         "projectName": "Diplom",
-        "projectPath": "C:\\Users\\mrpoo\\Desktop\\ДИПЛОМ\\Программа на диплом\\Diplom\\Diplom\\Diplom.csproj",
+        "projectPath": "C:\\Users\\mrpoo\\Documents\\diplom\\Diplom\\Diplom.csproj",
         "packagesPath": "C:\\Users\\mrpoo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mrpoo\\Desktop\\ДИПЛОМ\\Программа на диплом\\Diplom\\Diplom\\obj\\",
+        "outputPath": "C:\\Users\\mrpoo\\Documents\\diplom\\Diplom\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\mrpoo\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -44,6 +44,10 @@
             "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
               "target": "Package",
               "version": "[5.0.12, )"
+            },
+            "Microsoft.AspNetCore.SpaServices.Extensions": {
+              "target": "Package",
+              "version": "[5.0.17, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
