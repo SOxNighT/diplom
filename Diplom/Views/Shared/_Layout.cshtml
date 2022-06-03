@@ -8,11 +8,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Shop</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/themes/5.3.1/material/material-main-dark.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-
+    <base href="/" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="~/css/simple-adaptive-slider.min.css">
@@ -26,17 +28,17 @@
     <header>
         <div id='href' class="container bg-primary rounded">
             <div class="pb-3 pt-3 text-center text-light ">
-                <span class="h3">Новогодняя распродажа!</span>
+                <span class="h3">____________________</span>
             </div>
         </div>
         <div class="container bg-light text-dark rounded">
 
             <div class="row justify-content-between pb-1 pt-1">
                 <div class="col-4">
-                    <span><i class="fas fa-map-marker-alt"></i> г.Рязань</span>
+                    <span><i class="fas fa-map-marker-alt"></i> _________</span>
                 </div>
                 <div class="col-4 text-center">
-                    8-800-77-07-000 (c 03:00 до 22:00)
+                    ____________________________
                 </div>
             </div>
         </div>
@@ -51,20 +53,17 @@
                     <div class="col">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
                             <li class="nav-item">
-                                <a class="nav-link h5 text-primary @(Context.Request.Path == "/Bug" ? "active" : "" )" asp-area="" asp-controller="Home" asp-action="Home">Главная</a>
+                                <a class="nav-link h5 text-primary @(Context.Request.Path == "/Bug" ? "active" : "" )" asp-area="" asp-controller="Home" asp-action="Home">Акции</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link h5 text-primary @(Context.Request.Path == "/" ? "active" : "" )" asp-area="" asp-controller="Home" asp-action="Index">Каталог</a>
+                                <a class="nav-link h5 text-primary @(Context.Request.Path == "/" ? "active" : "" )" asp-area="" asp-controller="Home" asp-action="Index">Мой счет</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link h5 text-primary @(Context.Request.Path == "/Bug" ? "active" : "" )" asp-area="" asp-controller="Home" asp-action="About">О нас</a>
+                                <a class="nav-link h5 text-primary @(Context.Request.Path == "/Bug" ? "active" : "" )" asp-area="" asp-controller="Home" asp-action="About">Мои портфели</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link h5 text-primary @(Context.Request.Path == "/Bug" ? "active" : "" )" asp-area="" asp-controller="Home" asp-action="FeedBack">Отзывы</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link h5 text-primary @(Context.Request.Path == "/Bug" ? "active" : "" )" asp-area="" asp-controller="Home" asp-action="Contacts">Контакты</a>
+                                <a class="nav-link h5 text-primary @(Context.Request.Path == "/Bug" ? "active" : "" )" asp-area="" asp-controller="Home" asp-action="FeedBack">Настройки аккаунта</a>
                             </li>
 
 

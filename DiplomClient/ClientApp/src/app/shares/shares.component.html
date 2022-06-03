@@ -1,0 +1,43 @@
+<kendo-grid
+            [kendoGridBinding]="gridView"
+            kendoGridSelectBy="id"
+            [(selectedKeys)]="mySelection"
+            [pageSize]="20"
+            [pageable]="true"
+            [sortable]="true"
+            [groupable]="true"
+            [reorderable]="true"
+            [resizable]="true"
+            [height]="800"
+            [columnMenu]="{ filter: true }"
+        >
+            <ng-template kendoGridToolbarTemplate>
+                <input [style.width.px]="165" placeholder="Search in all columns..." kendoTextBox (input)="onFilter($event)"/>
+                <kendo-grid-spacer></kendo-grid-spacer>
+                <button kendoGridExcelCommand type="button" icon="file-excel">Export to Excel</button>
+                <button kendoGridPDFCommand icon="file-pdf">Export to PDF</button>
+            </ng-template>
+            <kendo-grid-checkbox-column
+                [width]="45"
+                [headerClass]="{'text-center': true}"
+                [class]="{'text-center': true}"
+                [resizable]="false"
+                [columnMenu]="false"
+                [showSelectAll]="true"
+            ></kendo-grid-checkbox-column>
+            <kendo-grid-column-group title="Employee" [columnMenu]="false">
+                <kendo-grid-column field="full_name" title="Contact Name" [width]="220">
+                </kendo-grid-column>
+                <kendo-grid-column field="job_title" title="Job Title" [width]="220">
+                </kendo-grid-column>
+            </kendo-grid-column-group>
+            <kendo-grid-column-group title="Contacts" [columnMenu]="false">
+                <kendo-grid-column field="phone" title="Phone" [width]="130">
+                </kendo-grid-column>
+                <kendo-grid-column field="address" title="Address" [width]="200">
+                </kendo-grid-column>
+            </kendo-grid-column-group>
+
+            <kendo-grid-pdf fileName="Employees.pdf" [repeatHeaders]="true"></kendo-grid-pdf>
+            <kendo-grid-excel fileName="Employees.xlsx"></kendo-grid-excel>
+        </kendo-grid>

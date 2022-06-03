@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using MvcContrib.UI.Grid;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -33,80 +34,29 @@ namespace JWT.Controllers
             _investApiClient = investApiClient;
         }
 
-
-       
-        public async Task<IActionResult> Index(string NameFilter)
+        public async Task<IActionResult> Shares()
         {
-            //var model = new CandlesViewModel()
-            //{
-            //    Candles = new List<CandlesItem>()
-            //};
-            //var bonds = await _investApiClient.Instruments.BondsAsync();
-            //foreach (var item in bonds.Instruments.Select(x => x.Figi).Take(10))
-            //{
-            //    var cand = new CandlesItem()
-            //    {
-            //        Figi = item,
-            //        Candle = await _investApiClient.MarketData.GetCandlesAsync(new GetCandlesRequest()
-            //        {
-            //            Figi = item,
-            //            From = Timestamp.FromDateTime(DateTime.UtcNow.AddDays(-7)),
-            //            To = Timestamp.FromDateTime(DateTime.UtcNow),
-            //            Interval = CandleInterval.Hour
-            //        })
-            //    };
-            //    model.Candles.Add(cand);
-            //}
-            //if (User.Claims.ToList().Count != 0)
-            //{
-            //    var uid = User.Claims.Where(x => x.Type == "Id").FirstOrDefault().Value;
-            //    var user = _uow.Users.Get(int.Parse(uid));
-            //    ViewBag.favor = user.Items;
-
-            //}
-
-            //var model = _uow.Items.GetAll().ToList().Select(s=> new ItemViewModel()
-            //{
-            //    id = s.Id.ToString(),
-            //    Name = s.Name,
-            //    ImageByte = s.Image,
-            //    Price = s.Price
-
-
-            //});
-
-            //if (!String.IsNullOrEmpty(NameFilter))
-            //{
-            //    model = model.Where(s => s.Name.Contains(NameFilter));
-            //}
-            //if (Request.Headers != null)
-            //    if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
-            //    return PartialView("_Indexpart", model);
-
-            //var investApiClient = new ServiceCollection()
-            //    .AddInvestApiClient((_, x) => x.AccessToken = "t.uysh4yKgQ4ynjw5-uwZ_r83u9Izwupa_k4Hglown62A3RtZ7wUjbb7jtFj7D0W7CSDqI7bSbatroA0gZob1ufg")
-            //    .BuildServiceProvider()
-            //    .GetService<InvestApiClient>();
-
             return View();
         }
-        
+
+        [HttpGet("data")]
+        public async Task<IActionResult> GetData()
+        {
+            var investApiClient = new ServiceCollection()
+                .AddInvestApiClient((_, x) => x.AccessToken = "t.uysh4yKgQ4ynjw5-uwZ_r83u9Izwupa_k4Hglown62A3RtZ7wUjbb7jtFj7D0W7CSDqI7bSbatroA0gZob1ufg")
+                .BuildServiceProvider()
+                .GetService<InvestApiClient>();
+
+            var shares = await investApiClient.Instruments.SharesAsync();
+            var data = shares.Instruments.ToList();
+            return Json(data);
+        }
+
         public async Task<IActionResult> Home()
         {
-            
-            //var model = _uow.Items.GetAll().ToList().Select(s => new ItemViewModel()
-            //{
-            //    id = s.Id.ToString(),
-            //    Name = s.Name,
-            //    ImageByte = s.Image,
-            //    Price = s.Price,
-            //    Description = s.Description
-
-            //}).Take(7).ToList();
             return View();
-
-
         }
+
 
         public IActionResult PageNotFound()
         {
