@@ -819,3 +819,6 @@ C:\Users\mrpoo\Documents\diplom\Diplom\bin\Debug\net5.0\tr-TR\Kendo.Mvc.resource
 C:\Users\mrpoo\Documents\diplom\Diplom\bin\Debug\net5.0\uk-UA\Kendo.Mvc.resources.dll
 C:\Users\mrpoo\Documents\diplom\Diplom\bin\Debug\net5.0\zh-CN\Kendo.Mvc.resources.dll
 C:\Users\mrpoo\Documents\diplom\Diplom\obj\Debug\net5.0\Razor\Views\Home\Shares.cshtml.g.cs
+C:\Users\mrpoo\Documents\diplom\Diplom\obj\Debug\net5.0\Razor\Views\Home\Portfolio.cshtml.g.cs
+C:\Users\mrpoo\Documents\diplom\Diplom\obj\Debug\net5.0\Razor\Views\Home\Portfolios.cshtml.g.cs
+C:\Users\mrpoo\Documents\diplom\Diplom\obj\Debug\net5.0\Razor\Views\Home\Share.cshtml.g.cs

@@ -1,15 +1,14 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { DataBindingDirective } from '@progress/kendo-angular-grid';
 import { process } from '@progress/kendo-data-query';
-import { shares } from './shares';
 
 @Component({
-  selector: 'my-shares',
-  templateUrl: './shares.component.html',
+  selector: 'my-share',
+  templateUrl: './share.component.html',
 })
-export class SharesComponent implements OnInit {
+export class ShareComponent implements OnInit {
   @ViewChild(DataBindingDirective) dataBinding: DataBindingDirective;
-  public gridData: unknown[] = shares;
+  public gridData: unknown[];
   public gridView: unknown[];
 
   public mySelection: string[] = [];
@@ -26,23 +25,34 @@ export class SharesComponent implements OnInit {
         logic: 'or',
         filters: [
           {
-            field: 'name',
+            field: 'full_name',
             operator: 'contains',
             value: inputValue,
           },
           {
-            field: 'tiker',
+            field: 'job_title',
             operator: 'contains',
             value: inputValue,
-          }
+          },
+          {
+            field: 'budget',
+            operator: 'contains',
+            value: inputValue,
+          },
+          {
+            field: 'phone',
+            operator: 'contains',
+            value: inputValue,
+          },
+          {
+            field: 'address',
+            operator: 'contains',
+            value: inputValue,
+          },
         ],
       },
     }).data;
 
     this.dataBinding.skip = 0;
-  }
-
-  public shareUrl(dataItem: { id: string;}): string {
-    return "/home/share?id=" + dataItem.id;
   }
 }

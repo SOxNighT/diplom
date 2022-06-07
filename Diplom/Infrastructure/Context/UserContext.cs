@@ -7,7 +7,10 @@ namespace JWT.Infrastructure.Context
     public class UserContext : DbContext
     {
         public DbSet<User> Users { get; set; }
-        
+        public DbSet<Share> Shares { get; set; }
+        public DbSet<Portfolio> Portfolios { get; set; }
+        public DbSet<ShareStack> ShareStacks { get; set; }
+
         public UserContext(DbContextOptions<UserContext> options)
             : base(options)
         {

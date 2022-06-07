@@ -34,10 +34,6 @@ namespace JWT.Controllers
             _investApiClient = investApiClient;
         }
 
-        public async Task<IActionResult> Shares()
-        {
-            return View();
-        }
 
         [HttpGet("data")]
         public async Task<IActionResult> GetData()
@@ -52,15 +48,64 @@ namespace JWT.Controllers
             return Json(data);
         }
 
+        /// <summary>
+        /// свой счет
+        /// </summary>
+        /// <returns></returns>
         public async Task<IActionResult> Home()
         {
             return View();
         }
 
+        /// <summary>
+        /// акции
+        /// </summary>
+        /// <returns></returns>
+        public async Task<IActionResult> Shares()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// акция
+        /// </summary>
+        /// <returns></returns>
+        public async Task<IActionResult> Share()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// Портфели
+        /// </summary>
+        /// <returns></returns>
+        public async Task<IActionResult> Portfolios()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// Портфель
+        /// </summary>
+        /// <returns></returns>
+        public async Task<IActionResult> Portfolio()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// О коэффициентах
+        /// </summary>
+        /// <returns></returns>
+        public async Task<IActionResult> About()
+        {
+            return View();
+        }
 
         public IActionResult PageNotFound()
         {
             return View();
         }
+
     }
 }

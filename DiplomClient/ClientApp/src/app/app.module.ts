@@ -10,6 +10,9 @@ import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ChartsModule } from '@progress/kendo-angular-charts';
 import 'hammerjs';
+import { ShareComponent } from './share/share.component';
+import { PortfoliosComponent } from './portfolios/portfolios.component';
+import { PortfolioComponent } from './portfolio/portfolio.component';
 @NgModule({
     imports:      [ 
         FormsModule, 
@@ -23,7 +26,7 @@ import 'hammerjs';
         PDFModule,
         ExcelModule
     ],
-    declarations: [ AppComponent, SharesComponent],
-    bootstrap:    [ AppComponent, SharesComponent]
+    declarations: [ AppComponent, ShareComponent, SharesComponent, PortfoliosComponent, PortfolioComponent],
+    bootstrap:    [ AppComponent, ShareComponent, SharesComponent, PortfoliosComponent, PortfolioComponent]
 })
 export class AppModule { }

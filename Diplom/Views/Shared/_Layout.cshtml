@@ -27,20 +27,6 @@
 <body class="text-light bg-dark">
     <header>
         <div id='href' class="container bg-primary rounded">
-            <div class="pb-3 pt-3 text-center text-light ">
-                <span class="h3">____________________</span>
-            </div>
-        </div>
-        <div class="container bg-light text-dark rounded">
-
-            <div class="row justify-content-between pb-1 pt-1">
-                <div class="col-4">
-                    <span><i class="fas fa-map-marker-alt"></i> _________</span>
-                </div>
-                <div class="col-4 text-center">
-                    ____________________________
-                </div>
-            </div>
         </div>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3 border-bottom border-secondary">
 
@@ -49,21 +35,22 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fas fa-bars"></i>
                 </button>
-                <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+                <div class=" collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
                     <div class="col">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
                             <li class="nav-item">
-                                <a class="nav-link h5 text-primary @(Context.Request.Path == "/Bug" ? "active" : "" )" asp-area="" asp-controller="Home" asp-action="Home">Акции</a>
+                                <a class="nav-link h5  @(Context.Request.Path == "/home/shares" ? "active" : "" )" asp-area="" asp-controller="home" asp-action="shares">Акции</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link h5 text-primary @(Context.Request.Path == "/" ? "active" : "" )" asp-area="" asp-controller="Home" asp-action="Index">Мой счет</a>
+                                <a class="nav-link h5  @(Context.Request.Path == "/home/portfolios" ? "active" : "" )" asp-area="" asp-controller="home" asp-action="portfolios">Мои портфели</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link h5 text-primary @(Context.Request.Path == "/Bug" ? "active" : "" )" asp-area="" asp-controller="Home" asp-action="About">Мои портфели</a>
+                                <a class="nav-link h5  @(Context.Request.Path == "/home/home" ? "active" : "" )" asp-area="" asp-controller="home" asp-action="home">Мой счет</a>
                             </li>
+
                             <li class="nav-item">
-                                <a class="nav-link h5 text-primary @(Context.Request.Path == "/Bug" ? "active" : "" )" asp-area="" asp-controller="Home" asp-action="FeedBack">Настройки аккаунта</a>
+                                <a class="nav-link h5  @(Context.Request.Path == "/home/about" ? "active" : "" )" asp-area="" asp-controller="home" asp-action="about">О коэффициентах</a>
                             </li>
 
 
@@ -79,43 +66,11 @@
                             {
 
 
-                                @if (@User.Claims.Where(x => x.Type == ClaimsIdentity.DefaultRoleClaimType).FirstOrDefault().Value == "admin")
-                                {
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link h5 dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            Администрирование
-                                        </a>
-                                        <ul class="dropdown-menu dropdown-menu-dark bg-dark" aria-labelledby="navbarDropdown">
-
-                                            <li class="nav-item">
-                                                <a class="nav-link  text-light @(Context.Request.Path == "/Users" ? "active" : "" )" asp-area="" asp-controller="Users" asp-action="Index">Пользователи</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link  text-light @(Context.Request.Path == "/Items" ? "active" : "" )" asp-area="" asp-controller="Items" asp-action="Index">Товары</a>
-                                            </li>
-                                            <li><hr class="dropdown-divider"></li>
-                                            <li class="nav-item me-2 ms-2 mb-2 mt-2  h5">
-                                                <span class="nav-link text-light">
-                                                    @User.Claims.Where(x => x.Type == "Name").FirstOrDefault().Value
-                                                </span>
-                                            </li>
-
-
-
-                                        </ul>
-                                    </li>
-                                }
-                                else
-                                {
+                                
                                     <li class="nav-item me-2 ms-2 mb-2 mt-2  h5">
                                         <span class=" mr-5 text-secondary"> @User.Claims.Where(x => x.Type == "Name").FirstOrDefault().Value</span>
                                     </li>
-                                }
 
-
-                                <li class="navalign-items-baseline me-2 ms-2 mb-2 mt-2">
-                                    <a class="btn btn-sm btn-outline-success" asp-area="" asp-controller="Home" asp-action="Favor" title="Корзина"><i class="fas fa-shopping-cart"></i></a>
-                                </li>
 
                                 <li class="navalign-items-baseline me-2 ms-2 mb-2 mt-2">
                                     <a class="btn btn-sm btn-outline-danger" asp-area="" asp-controller="Account" asp-action="LogOut" title="Выйти"><i class="fas fa-sign-out-alt"></i></a>

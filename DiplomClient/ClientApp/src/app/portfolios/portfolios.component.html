@@ -1,4 +1,5 @@
-<h1 class="ml-3 mb-3">Акции</h1>
+<h1 class="ml-3 mb-3">Портфели</h1>
+<button class="btn-secondary ml-3 mb-3">Добавить</button>
 <kendo-grid
             [kendoGridBinding]="gridView"
             kendoGridSelectBy="id"
@@ -9,7 +10,7 @@
             [groupable]="false"
             [reorderable]="true"
             [resizable]="true"
-            [height]="900"
+            [height]="800"
             [columnMenu]="{ filter: true }"
         >
             <ng-template kendoGridToolbarTemplate>
@@ -27,12 +28,12 @@
                 [showSelectAll]="true"
             ></kendo-grid-checkbox-column>
             <kendo-grid-column-group title="Описание" [columnMenu]="false">
-                <kendo-grid-column field="name" title="Название" [width]="220">
+                <kendo-grid-column field="name" title="Название" [width]="120">
                     <ng-template kendoGridCellTemplate let-dataItem>
-                        <div><a href="{{shareUrl(dataItem)}}">{{dataItem.name}}</a></div>
+                        <div><a href="{{portfolioUrl(dataItem)}}">{{dataItem.name}}</a></div>
                     </ng-template>
                 </kendo-grid-column>
-                <kendo-grid-column field="tiker" title="Тикер" [width]="130">
+                <kendo-grid-column field="date" title="Дата создания" [width]="230">
                 </kendo-grid-column>
             </kendo-grid-column-group>
             <kendo-grid-column-group title="Коэффициенты" [columnMenu]="false">
@@ -59,6 +60,6 @@
                 </kendo-grid-column>
             </kendo-grid-column-group>
 
-            <kendo-grid-pdf fileName="Shares.pdf" [repeatHeaders]="true"></kendo-grid-pdf>
-            <kendo-grid-excel fileName="Shares.xlsx"></kendo-grid-excel>
+            <kendo-grid-pdf fileName="Portfolio.pdf" [repeatHeaders]="true"></kendo-grid-pdf>
+            <kendo-grid-excel fileName="Portfolio.xlsx"></kendo-grid-excel>
         </kendo-grid>
